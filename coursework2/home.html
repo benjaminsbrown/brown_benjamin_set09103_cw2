@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>Mad Mythology</title>
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+<style>
+body {
+  padding-top: 70px;
+  background-image: url("static/marble3.jpg");
+
+    height: 100%;
+
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+button#home_link {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+button#roman_link {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+button#greek_link {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+button#home_link {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+button#demigod_link {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+button:hover#roman_link {
+    background-color: red;
+}
+button:hover#greek_link {
+    background-color: gold;
+}
+button:hover#demigod_link {
+    background-color: #FFA66A;
+}
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+</style>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+ 	<div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	<span class="sr-only">Toggle navigation</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+
+	</button>
+	<a class="navbar-brand" href="#">Mad Mythology (or a better title)</a>
+	</div>
+	<div id="navbar" class="collapse navbar-collapse">
+	<ul class="nav navbar-nav">
+	  <li class="active"><a href="/"><button type="button"  id="home_link">Home</button ></a></li>
+	  <li><a href="/romans.html"><button type="button"  id="roman_link">Romans </button ></a></li>
+	  <li><a href="/greeks.html"><button type="button"  id="greek_link">Greeks </button ></a></li>
+    <li><a href="/demigods.html"><button type="button"  id="demigod_link">Demigods </button ></a></li>
+   </ul>
+	 </div>
+	</div>
+</nav>
+
+	 <div class="container">
+	    <center><h1>Welcome Human!</h1>
+	    <p class="lead"> It's about time you learned a little bit about some gods that did way cooler things than any modern popular diety
+      ever has, your god flooded the world? Well one of these gods fought his own father and saved his siblings from his stomach. Now if that isn't
+     metal i don't know what is.</p></center>
+        </div>
+        <a href="/romans">
+  <center><img src="static/romans.jpg" alt="romans" style="width:400px;height:250px;border:2;" hspace="20">
+</a>
+<figcaption> Pathetic romans(they're boring copycats just don't bother)</figcaption>
+<a href="/greeks">
+<img src="static/greeks.jpg" alt="greeks" style="width:400px;height:250px;border:2;" hspace="20">
+</a>
+<figcaption> Fabulous greeks (can you name another culture that could do battle AND theatre?) </figcaption></center>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>
