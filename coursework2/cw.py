@@ -5,5 +5,5 @@ app = Flask(__name__)
 def root():
 	return render_template('home.html'), 200
 @app.route('/signup')
-def root():
+def signup():
 	return render_template('signup.html'), 200
