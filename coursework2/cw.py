@@ -7,10 +7,10 @@ def login():
         if request.form['username'] != 'admin' or request.form['password'] != 'admin':
             error = 'Invalid Credentials. Please try again.'
         else:
-            return redirect(url_for('/'))
+            return redirect(url_for('home'))
     return render_template('login.html', error=error)
 @app.route('/')
-def root():
+def home():
 	return render_template('home.html'), 200
 @app.route('/signup')
 def signup():
