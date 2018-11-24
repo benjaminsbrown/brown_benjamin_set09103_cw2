@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
 app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
-    def login():
+def login():
         error = None
         if request.method == 'POST':
             if request.form['username'] != 'admin' or request.form['password'] != 'admin':
@@ -11,11 +11,11 @@ app = Flask(__name__)
                 return redirect(url_for('home'))
                 return render_template('login.html', error=error)
 @app.route('logout')
-    def logout():
+def logout():
         session.pop('Logged_in', None)
 @app.route('/home')
-    def home():
+def home():
 	       return render_template('home.html'), 200
 @app.route('/signup')
-    def signup():
+def signup():
 	       return render_template('signup.html'), 200
