@@ -7,7 +7,6 @@ def root():
 @app.route('/signup')
 def signup():
 	return render_template('signup.html'), 200
-@app.route('login')
+@app.route('/login')
 def login():
     return render_template('login.html'), 200
-    
