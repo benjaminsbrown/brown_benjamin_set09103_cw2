@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, session, flash
-from functools import wrap
+from functools import wraps
 app = Flask(__name__)
 app.secret_key = "super secret"
 
