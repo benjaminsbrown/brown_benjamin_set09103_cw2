@@ -10,12 +10,14 @@ def login():
                 error = 'Invalid Username and/or Password please try again.'
             else:
                 session['Logged_in'] = True
+                flash('You weer just logged in!')
                 return redirect(url_for('home'))
         return render_template('login.html', error=error)
 
 @app.route('/logout')
 def logout():
         session.pop('Logged_in', None)
+        flash('You weer just logged out!')
         return redirect(url_for('home'))
 
 @app.route('/')
