@@ -11,11 +11,11 @@ def login():
                 return redirect(url_for('home'))
                 return render_template('login.html', error=error)
 @app.route('logout')
-    def logout():
+def logout():
         session.pop('Logged_in', None)
 @app.route('/home')
-    def home():
+def home():
 	       return render_template('home.html'), 200
 @app.route('/signup')
-    def signup():
+def signup():
 	       return render_template('signup.html'), 200
