@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect, session
 app = Flask(__name__)
-app.secret_key= "super secret"
+
 @app.route('/', methods=['GET', 'POST'])
 def login():
         error = None
@@ -16,7 +16,7 @@ def login():
 def logout():
         session.pop('logged_in', None)
         return redirect(url_for('home'))
-        return render_template('login.html'), 200
+
 @app.route('/home')
 def home():
 	       return render_template('home.html'), 200
