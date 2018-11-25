@@ -49,7 +49,7 @@ def home():
 return render_template('home.html', posts=posts), 200
 @app.route('/signup')
 def signup():
-return render_template('signup.html'), 200
+    return render_template('signup.html'), 200
 @app.route('/greeks/')
 def greeks():
-return render_template('greeks.html'), 200
+    return render_template('greeks.html'), 200
