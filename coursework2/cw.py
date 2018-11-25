@@ -46,7 +46,8 @@ def home():
     cur = g.db.execute('select * from posts')
     posts = [dict(title=row[0], description=row[1]) for row in cur.fetchall()]
     g.db.close()
-return render_template('home.html', posts=posts), 200
+    return render_template('home.html', posts=posts), 200
+
 @app.route('/signup')
 def signup():
     return render_template('signup.html'), 200
