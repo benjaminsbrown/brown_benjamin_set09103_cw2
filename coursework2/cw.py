@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect
 app = Flask(__name__)
 app.secret_key = "super secret"
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def home():
         error = None
         if request.method == 'POST':
@@ -18,9 +18,12 @@ def logout():
         session.pop('Logged_in', None)
         return redirect(url_for('main'))
 
-@app.route('/home')
+@app.route('/')
 def main():
 	       return render_template('home.html'), 200
 @app.route('/signup')
 def signup():
 	       return render_template('signup.html'), 200
+@app.route('/greeks/')
+def greeks():
+	return render_template('greeks.html'), 200
