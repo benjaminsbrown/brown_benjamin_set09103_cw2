@@ -117,6 +117,9 @@ button:hover#Game_link {
 <img src="static/greeks.jpg" alt="greeks" style="width:400px;height:250px;border:2;" hspace="20">
 </a>
 <figcaption> Fabulous greeks (can you name another culture that could do battle AND theatre?) </figcaption></center>
+{% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
