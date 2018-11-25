@@ -22,18 +22,18 @@ def login_required(f):
 def login():
         error = None
         if request.method == 'POST':
-            if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            if request.form['username'] != 'ben' or request.form['password'] != 'brown':
                 error = 'Invalid Username and/or Password please try again.'
             else:
                 session['Logged_in'] = True
-                flash('You were just logged in!')
+                flash('Logged in')
                 return redirect(url_for('home'))
         return render_template('login.html', error=error)
 
 @app.route('/logout')
 def logout():
         session.pop('Logged_in', None)
-        flash('You were just logged out!')
+        flash('Logged out')
         return redirect(url_for('home'))
 
 def connect_db():
