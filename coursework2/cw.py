@@ -11,7 +11,7 @@ def login_required(f):
         else:
             flash('You need to login ya snake!')
             return redirect(url_for('login'))
-        return wrap
+    return wrap
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
