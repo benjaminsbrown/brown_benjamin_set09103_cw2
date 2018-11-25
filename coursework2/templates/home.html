@@ -11,6 +11,13 @@
 <a href="/login">
 </a>
 <figcaption> Fabulous greeks (can you name another culture that could do battle AND theatre?) </figcaption></center>
+<br><br>
+<h3>Posts:</h3>
+{% for post in posts %}
+  <strong>Title:</strong> {{ post.title }} <br>
+  <strong>Post:</strong> {{ post.description }} <br>
+<br>
+{% endfor %}
 {% for message in get_flashed_messages() %}
         {{ message }}
       {% endfor %}

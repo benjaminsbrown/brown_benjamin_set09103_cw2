@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, session, flash
+from flask import Flask, render_template, url_for, request, redirect, session, flash, g
 from functools import wraps
 import sqlite3
 app = Flask(__name__)
@@ -34,6 +34,7 @@ def logout():
 
 def connect_db():
     return sqlite3.connect(app.database)
+
 @app.route('/')
 @login_required
 def root():
@@ -41,10 +42,14 @@ def root():
 @app.route('/home')
 @login_required
 def home():
-	    return render_template('home.html'), 200
+    g.db = connect_db()
+    cur = g.db.execute('select * from posts')
+    posts = [dict(title=row[0], description=row[1]) for row in cur.fetchall()]
+    g.db.close()
+	return render_template('home.html', posts=posts), 200
 @app.route('/signup')
 def signup():
-	    return render_template('signup.html'), 200
+	return render_template('signup.html'), 200
 @app.route('/greeks/')
 def greeks():
-	    return render_template('greeks.html'), 200
+	return render_template('greeks.html'), 200
