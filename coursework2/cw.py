@@ -1,5 +1,5 @@
-from flask import Flask, render_template, url_for, request, redirect, session, flash, g
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, url_for, request, redirect, session, flash, g, SQLAlchemy
+
 from functools import wraps
 
 # import sqlite3
