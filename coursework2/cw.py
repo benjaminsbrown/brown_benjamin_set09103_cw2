@@ -1,8 +1,9 @@
 from flask import Flask, render_template, url_for, request, redirect, session, flash
 from functools import wraps
+import sqlite3
 app = Flask(__name__)
 app.secret_key = "super secret"
-
+app.database = "sample.db"
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -31,6 +32,8 @@ def logout():
         flash('You were just logged out!')
         return redirect(url_for('home'))
 
+def connect_db():
+    return sqlite3.connect(app.database)
 @app.route('/')
 @login_required
 def root():
