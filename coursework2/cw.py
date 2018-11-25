@@ -9,11 +9,12 @@ def login():
             else:
                 session['Logged_in'] = True
                 return redirect(url_for('home'))
-                return render_template('login.html', error=error)
+                return render_template('home.html', error=error)
 @app.route('/logout')
 def logout():
         session.pop('Logged_in', None)
         return redirect(url_for('home'))
+        return render_template('home.html'), 200
 @app.route('/home')
 def home():
 	       return render_template('home.html'), 200
