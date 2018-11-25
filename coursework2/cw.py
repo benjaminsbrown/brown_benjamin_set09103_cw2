@@ -6,7 +6,9 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.secret_key = '\xf1yW\xafT\xf5\x11o\xb4\xd5a\x98\xf12-\xd3`\x99\xe6m\x01\t\xae\x83'
-app.database = "sample.db"
+app.config['SQLALCHEMY_DATABSE_URI'] = 'sqlite:///posts.db'
+
+db = SQLALCHEMY(cw)
 
 def login_required(f):
     @wraps(f)
@@ -36,8 +38,8 @@ def logout():
         flash('Logged out')
         return redirect(url_for('home'))
 
-def connect_db():
-    return sqlite3.connect(app.database)
+#def connect_db():
+#    return sqlite3.connect(app.database)
 
 @app.route('/')
 @login_required
