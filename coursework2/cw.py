@@ -13,6 +13,7 @@ def login():
 @app.route('/logout')
 def logout():
         session.pop('Logged_in', None)
+        return redirect(url_for('home'))
 @app.route('/home')
 def home():
 	       return render_template('home.html'), 200
