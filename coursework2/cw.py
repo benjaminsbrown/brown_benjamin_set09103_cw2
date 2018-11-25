@@ -33,6 +33,10 @@ def logout():
 
 @app.route('/')
 @login_required
+def root():
+	    return render_template('home.html'), 200
+@app.route('/home')
+@login_required
 def home():
 	    return render_template('home.html'), 200
 @app.route('/signup')
