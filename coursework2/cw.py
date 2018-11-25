@@ -10,7 +10,7 @@ def login():
                 session['Logged_in'] = True
                 return redirect(url_for('home'))
                 return render_template('login.html', error=error)
-@app.route('logout')
+@app.route('/logout')
 def logout():
         session.pop('Logged_in', None)
 @app.route('/home')
