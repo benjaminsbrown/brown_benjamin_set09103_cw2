@@ -1,9 +1,13 @@
 from flask import Flask, render_template, url_for, request, redirect, session, flash, g
+
 from functools import wraps
+
 import sqlite3
+
 app = Flask(__name__)
 app.secret_key = '\xf1yW\xafT\xf5\x11o\xb4\xd5a\x98\xf12-\xd3`\x99\xe6m\x01\t\xae\x83'
 app.database = "sample.db"
+
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
