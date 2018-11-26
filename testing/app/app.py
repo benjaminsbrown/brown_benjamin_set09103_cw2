@@ -63,7 +63,9 @@ class FTSEntry(FTSModel):
 
     class Meta:
         database = database
-
+@classmethod
+def public(cls):
+    return Entry.select().where(Entry.published == True)
 @app.template_filter('clean_querystring')
 def clean_querystring(request_args, *keys_to_remove, **new_values):
     querystring = dict((key, value) for key, value in request_args.items())
@@ -117,9 +119,7 @@ def logout():
         return redirect(url_for('login'))
     return render_template('logout.html')
 
-@classmethod
-def public(cls):
-    return Entry.select().where(Entry.published == True)
+
 
 @classmethod
 def search(cls, query):
