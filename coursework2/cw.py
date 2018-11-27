@@ -9,7 +9,7 @@ app = Flask(__name__)
 #app.secret_key = '\xf1yW\xafT\xf5\x11o\xb4\xd5a\x98\xf12-\xd3`\x99\xe6m\x01\t\xae\x83'
 #app.database = "sample.db"
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config[‘SQLALCHEMY_DATABASE_URI’] = ‘sqlite:///’ + os.path.join(basedir, ‘app.sqlite’)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite')
 db = SQLAlchemy(app)
 
 class Note(db.Model):
@@ -19,6 +19,7 @@ class Note(db.Model):
     def __init__(self, title, body):
         self.title = title
         self.body = body
+
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
