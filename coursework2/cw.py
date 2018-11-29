@@ -74,7 +74,7 @@ def root():
 
 @app.route('/home')
 @login_required
-def home():
+def show_entries():
     g.db = connect_db()
     cur = g.db.execute('SELECT title, text from entries order by id desc')
     entries = [dict(title = row[0], text=row[1]) for row in cur.fetchall()]
@@ -83,13 +83,14 @@ def home():
 @app.route('/signup')
 def signup():
     return render_template('signup.html'), 200
+
 @app.route('/add', methods=['POST'])
-@login_required
 def add_entry():
-    g.db.execute('INSERT INTO entries values(title, text)  ​​(?, ?)', [request.form['title'], request.form['text']])
+    g.db.execute('INSERT INTO entries (title,text)values​​(?,?)',[ request . form [ 'title' ],  request . form [ 'text' ]])
     g.db.commit()
-    flash('New entry was added')
-    return redirect(url_for('home'))
+    flash ('New entry was successfully posted')
+    return redirect(url_for('show_entries'))
+
 @app.route('/greeks/')
 def greeks():
     return render_template('greeks.html'), 200
