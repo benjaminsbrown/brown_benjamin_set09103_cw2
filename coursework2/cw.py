@@ -85,7 +85,7 @@ def signup():
 @app.route('/add', methods=['POST'])
 @login_required
 def add_entry():
-    g.db.execute('INSERT INTO entries (title,text)values ',[request.form['title'], request.form['text']])
+    g.db.execute('INSERT INTO entries (title, text)values',[request.form['title'], request.form['text']])
     g.db.commit()
     flash('New entry was added')
     return redirect(url_for('home'))
