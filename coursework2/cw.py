@@ -75,7 +75,7 @@ def root():
 @login_required
 def home():
     g.db = connect_db()
-    cur = g.db.execute('select title, text from entries order by id desc')
+    cur = g.db.execute('SELECT title, text from entries order by id desc')
     entries = [dict(title = row[0], text=row[1]) for row in cur.fetchall()]
     return  render_template ( 'show_entries.html' ,  entries = entries)
 
@@ -85,7 +85,7 @@ def signup():
 @app.route('/add', methods=['POST'])
 @login_required
 def add_entry():
-    g.db.execute('insert into entries (title,text)values ​​(?, ?)',[request.form['title'], request.form['text']]) 
+    g.db.execute('INSERT INTO entries (title,text)values ​​(?, ?)',[request.form['TITLE'], request.form['TEXT']])
     g.db.commit()
     flash('New entry was added')
     return redirect(url_for('home'))
