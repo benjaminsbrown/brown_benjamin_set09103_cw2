@@ -1,3 +1,4 @@
+# coding: utf-8
 from flask import Flask, render_template, url_for, request, redirect, session, flash, g, abort
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -85,7 +86,7 @@ def signup():
 @app.route('/add', methods=['POST'])
 @login_required
 def add_entry():
-    g.db.execute('INSERT INTO entries (title, text) values ​', [request.form['title'], request.form['text']])
+    g.db.execute('INSERT INTO entries (title, text) values ​​(?, ?)', [request.form['title'], request.form['text']])
     g.db.commit()
     flash('New entry was added')
     return redirect(url_for('home'))
