@@ -12,9 +12,9 @@
 
   <ul class=entries>
   {% for entry in entries %}
-    <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}
+    <li><h2>{{entry.title}}</h2>{{entry.text|safe}}
   {% else %}
-    <li><em>UNo entries here</em>
+    <li><em>No entries here</em>
   {% endfor %}
   </ul>
 {% endblock %}
