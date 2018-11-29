@@ -86,7 +86,7 @@ def signup():
 
 @app.route('/add', methods=['POST'])
 def add_entry():
-    g.db.execute('INSERT INTO entries (title,text)values​​(?,?)',[ request . form [ 'title' ],  request . form [ 'text' ]])
+    g.db.execute("INSERT INTO entries (title,text) VALUES (?,?)",[ request . form [ 'title' ],  request . form [ 'text' ]])
     g.db.commit()
     flash ('New entry was successfully posted')
     return redirect(url_for('show_entries'))
