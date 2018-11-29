@@ -41,6 +41,25 @@ def login():
                 flash('Logged in')
                 return redirect(url_for('root'))
         return render_template('login.html', error=error)
+@app.route("/notes", methods=["GET"])
+def view_notes():
+    all_notes = Note.query.all()
+    return render_template('notes.html', notes=all_notes)
+
+@app.route("/notes/create", methods=["GET", "POST"])
+def create_note():
+    if request.method == "GET":
+        return render_template("create_note.html")
+    else:
+        title = request.form["title"]
+        body = request.form["body"]
+
+        note = Note(title=title, body=body)
+
+        db.session.add(note)
+        db.session.commit()
+
+        return redirect("/notes/create")
 
 @app.route('/logout')
 def logout():
