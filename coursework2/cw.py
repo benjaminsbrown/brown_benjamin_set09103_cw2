@@ -69,7 +69,7 @@ def connect_db():
 @app.route('/')
 @login_required
 def root():
-	    return redirect(url_for('home'))
+	    return render_template('home.html'), 200
 
 @app.route('/home')
 @login_required
