@@ -21,6 +21,14 @@ class Note(db.Model):
         self.title = title
         self.body = body
 
+@app.before_request
+def before_request():
+    g.db = connect_db()
+
+@app.teardown_request
+def teardown_request(exception):
+    g.db.close()
+
 def  init_db():
     with  closing(connect_db()) as db:
         with  app.open_resource('schema.sql') as f:
@@ -61,19 +69,26 @@ def connect_db():
 @app.route('/')
 @login_required
 def root():
-	    return render_template('home.html'), 200
+	    return redirect(url_for('home'))
+
 @app.route('/home')
 @login_required
 def home():
     g.db = connect_db()
-    cur = g.db.execute('select * from posts')
-    posts = [dict(title=row[0], description=row[1]) for row in cur.fetchall()]
-    g.db.close()
-    return render_template('home.html', posts=posts), 200
+    cur = g.db.execute('select title, text from entries order by id desc')
+    entries = [dict(title = row[0], text=row[1]) for row in cur.fetchall()]
+    return  render_template ( 'show_entries.html' ,  entries = entries)
 
 @app.route('/signup')
 def signup():
     return render_template('signup.html'), 200
+@app.route('/add', methods=['POST'])
+@login_required
+def add_entry():
+    g.db.execute('insert into entries (title,text)values ​​(?, ?)',[request.form['title'], request.form['text']]) 
+    g.db.commit()
+    flash('New entry was added')
+    return redirect(url_for('home'))
 @app.route('/greeks/')
 def greeks():
     return render_template('greeks.html'), 200
