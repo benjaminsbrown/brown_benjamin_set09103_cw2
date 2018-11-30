@@ -1,5 +1,15 @@
 {% extends "navbar.html" %}
 {% block body %}
+<div class=page>
+  <h1>Flaskr</h1>
+  <div class=metanav>
+    <a href="{{url_for('logout')}}">log out</a>
+
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{message}}</div>
+    {% endfor %}
+  {% block body %}{% endblock %}
     <form action="{{url_for('add_entry')}}" method=post class=add-entry>
       <dl>
         <dt>Title:
