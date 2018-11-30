@@ -4,11 +4,10 @@
 	    <center><h1>Welcome!</h1>
 	    <p class="lead">It's the homepage yo</p></center>
         </div>
-        <a href="/romans">
   <center>
 </a>
-<figcaption> login here</figcaption>
-<a href="/login">
+<a href="/login">login here</a>
+
 </a>
 <br>
 <a href=”show_entries.html>Create a note</a>
@@ -24,13 +23,7 @@
         {{ message }}
       {% endfor %}
 
-			<ul class=entries>
-			{% for entry in entries %}
-				<li><h2>{{entry.title}}</h2>{{entry.text|safe}}
-			{% else %}
-				<li><em>No entries here</em>
-			{% endfor %}
-			</ul>
+			
 {% endblock %}
 
 
