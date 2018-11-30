@@ -1,11 +1,11 @@
 <html>
 <head>
-<title>Egotistical Egyptians</title>
+<title>Mad Mythology</title>
 <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
 <style>
 body {
   padding-top: 70px;
-  background-image: url("static/marble3.jpg");
+  background-image: url("../../static/marble3.jpg");
 
     height: 100%;
 
@@ -15,16 +15,6 @@ body {
     background-size: cover;
 }
 
-button#Positive_link {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-}
 button#home_link {
     font-size: 16px;
     border: none;
@@ -55,7 +45,7 @@ button#greek_link {
     font-family: inherit;
     margin: 0;
 }
-button#Logout_link {
+button#home_link {
     font-size: 16px;
     border: none;
     outline: none;
@@ -65,13 +55,33 @@ button#Logout_link {
     font-family: inherit;
     margin: 0;
 }
-button:hover#Positive_link {
+button#demigod_link {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+button#goBack{
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+button:hover#roman_link {
     background-color: red;
 }
-button:hover#Angry_link {
+button:hover#greek_link {
     background-color: gold;
 }
-button:hover#Game_link {
+button:hover#demigod_link {
     background-color: #FFA66A;
 }
 .navbar a:hover, .dropdown:hover .dropbtn {
@@ -100,23 +110,36 @@ button:hover#Game_link {
 	<span class="icon-bar"></span>
 
 	</button>
-	<a class="navbar-brand" href="#">Speak people</a>
+	<a class="navbar-brand" href="#">Mad Mythology (or a better title)</a>
 	</div>
 	<div id="navbar" class="collapse navbar-collapse">
 	<ul class="nav navbar-nav">
 	  <li class="active"><a href="/"><button type="button"  id="home_link">Home</button ></a></li>
-      <li><a href="/romans.html"><button type="button"  id="roman_link">Romans </button ></a></li>
-  	  <li><a href="/greeks.html"><button type="button"  id="greek_link">Greeks </button ></a></li>
-	  <li><a href="/home"><button type="button"  id="Positive_link">Comment on a god</button ></a></li>
-      <li><a href="/logout"><button type="button"  id="Logout_link">Logout </button ></a></li>
+	  <li><a href="/romans.html"><button type="button"  id="roman_link">Romans </button ></a></li>
+	  <li><a href="/greeks.html"><button type="button"  id="greek_link">Greeks </button ></a></li>
+    <li><a href="/demigods.html"><button type="button"  id="demigod_link">Demigods </button ></a></li>
+      <li><button id="goback" onclick="goBack()">Go Back</button></li>
    </ul>
 	 </div>
 	</div>
 </nav>
-<br>
 
-      {% block body %}{% endblock %}
-    </div>
+<div class="container">
+   <center><h1>The God of War. Ares!</h1></center>
+   <p>
+<img src="../../static/Ares.jpg" alt="Mars" align = "right" style="width:400px;height:500px;border:2;" hspace="20"style="float: right;">
+           Here's the greek god of war Ares. His father was
+           <a href="/greeks/greekgods/zues.html"> Zues</a>, if you're good at family rules
+           you'll know that makes him half brother to heracles(huh this paragraph looks familiar). His mother was <a href="/greeks/greekgods/hera.html">Hera. </a>
+         </p>
+</div>
 
-  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script>
+  function goBack() {
+      window.history.back();
+  }
+  </script>
+</body>
 </html>

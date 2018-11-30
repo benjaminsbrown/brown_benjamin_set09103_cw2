@@ -91,9 +91,79 @@ def add_entry():
     flash ('New entry was successfully posted')
     return redirect(url_for('show_entries'))
 
+@app.route('/demigods/')
+@login_required
+def demigods():
+	return render_template('demigods.html'), 200
+
+@app.route('/demigods.html')
+@login_required
+def demigodshtml():
+	return render_template('demigods.html'), 200
+
 @app.route('/greeks/')
+@login_required
 def greeks():
-    return render_template('greeks.html'), 200
+	return render_template('greeks.html'), 200
+
+@app.route('/greeks.html')
+@login_required
+def greekshtml():
+	return render_template('greeks.html'), 200
+
+@app.route('/greeks/greekgods.html')
+@login_required
+def greekgods():
+	return render_template('greekgods.html'), 200
+
+@app.route('/greeks/greekgods/zues.html')
+@login_required
+def zues():
+	return render_template('zues.html'), 200
+@app.route('/greeks/greekgods/hera.html')
+@login_required
+def hera():
+	return render_template('hera.html'), 200
+@app.route('/greeks/greekgods/ares.html')
+@login_required
+def ares():
+	return render_template('ares.html'), 200
+@app.route('/pantheon.html')
+@login_required
+def pantheonshtml():
+	return render_template('pantheon.html'), 200
+@app.route('/greeks/pantheon/')
+@login_required
+def pantheon():
+	return render_template('pantheon.html'), 200
+@app.route('/romans/')
+@login_required
+def romans():
+	return render_template('romans.html'), 200
+@app.route('/romans.html')
+@login_required
+def romanshtml():
+	return render_template('romans.html'), 200
+
+@app.route('/romans/romansgods.html')
+@login_required
+def romangods():
+	return render_template('romangods.html'), 200
+
+@app.route('/romans/romansgods/jupiter.html')
+@login_required
+def jupiter():
+	return render_template('jupiter.html'), 200
+
+@app.route('/romans/romansgods/juno.html')
+@login_required
+def juno():
+	return render_template('juno.html'), 200
+
+@app.route('/romans/romansgods/mars.html')
+@login_required
+def mars():
+	return render_template('mars.html'), 200
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', debug=True)
