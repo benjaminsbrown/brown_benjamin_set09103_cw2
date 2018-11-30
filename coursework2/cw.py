@@ -1,6 +1,7 @@
 # coding: utf-8
 from flask import Flask, render_template, url_for, request, redirect, session, flash, g, abort
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from functools import wraps
 from  contextlib  import  closing
@@ -22,6 +23,11 @@ class Note(db.Model):
         self.title = title
         self.body = body
 
+class User(db.Model):
+def set_password(self, password):
+    self.password_hash = generate_password_hash(password)
+def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 @app.before_request
 def before_request():
     g.db = connect_db()
