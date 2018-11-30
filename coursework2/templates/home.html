@@ -4,22 +4,6 @@
 	    <center><h1>Welcome!</h1>
 	    <p class="lead">It's the homepage yo</p></center>
         </div>
-  <center>
-<br>
-<a href="/home"><button type="button"  id="Positive_link">Make a post</button ></a>
-<figcaption> Fabulous greeks (can you name another culture that could do battle AND theatre?) </figcaption></center>
-<br><br>
-			<ul class=entries>
-			{% for entry in entries %}
-				<li><h2>{{entry.title}}</h2>{{entry.text|safe}}
-			{% else %}
-				<li><em>No entries here</em>
-			{% endfor %}
-			</ul>
-
-
-
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 </body>
