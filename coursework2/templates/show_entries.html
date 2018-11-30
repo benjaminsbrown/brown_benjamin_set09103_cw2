@@ -9,7 +9,7 @@
   {% for message in get_flashed_messages() %}
     <div class=flash>{{message}}</div>
     {% endfor %}
-  {% block body %}{% endblock %}
+  
     <form action="{{url_for('add_entry')}}" method=post class=add-entry>
       <dl>
         <dt>Title:
