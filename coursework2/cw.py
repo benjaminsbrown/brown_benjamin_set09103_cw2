@@ -1,5 +1,6 @@
 # coding: utf-8
 from flask import Flask, render_template, url_for, request, redirect, session, flash, g, abort
+from flask_login import LoginManager, UserMixin, current_user, login_user
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
@@ -9,6 +10,7 @@ from  contextlib  import  closing
 import sqlite3
 
 app = Flask(__name__)
+login = LoginManager(app)
 app.secret_key = '\xf1yW\xafT\xf5\x11o\xb4\xd5a\x98\xf12-\xd3`\x99\xe6m\x01\t\xae\x83'
 app.database = "sample.db"
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -23,7 +25,7 @@ class Note(db.Model):
         self.title = title
         self.body = body
 
-class User(db.Model):
+class User(UserMixin, db.Model):
 def set_password(self, password):
     self.password_hash = generate_password_hash(password)
 def check_password(self, password):
@@ -35,6 +37,10 @@ def before_request():
 @app.teardown_request
 def teardown_request(exception):
     g.db.close()
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 def init_db():
     with  closing(connect_db()) as db:
