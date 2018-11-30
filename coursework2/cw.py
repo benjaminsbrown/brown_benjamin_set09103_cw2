@@ -62,7 +62,7 @@ def login():
 def logout():
         session.pop('Logged_in', None)
         flash('Logged out')
-        return redirect(url_for('home'))
+        return redirect(url_for('login'))
 
 def connect_db():
     return sqlite3.connect(app.database)
