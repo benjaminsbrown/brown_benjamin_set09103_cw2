@@ -58,17 +58,7 @@ def login_required(f):
             return redirect(url_for('login'))
     return wrap
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-        error = None
-        if request.method == 'POST':
-            if request.form['username'] != 'ben' or request.form['password'] != 'brown':
-                error = 'Invalid Username and/or Password please try again.'
-            else:
-                session['Logged_in'] = True
-                flash('Logged in')
-                return redirect(url_for('root'))
-        return render_template('login.html', error=error)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
