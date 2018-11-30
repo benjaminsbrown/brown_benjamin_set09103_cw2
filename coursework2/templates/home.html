@@ -1,5 +1,5 @@
 {% extends "navbar.html" %}
-{% block content %}
+{% block body %}
 	 <div class="container">
 	    <center><h1>Welcome!</h1>
 	    <p class="lead">It's the homepage yo</p></center>
@@ -16,7 +16,7 @@
 				<li><em>No entries here</em>
 			{% endfor %}
 			</ul>
-{% endblock %}
+
 
 
 
@@ -24,3 +24,4 @@
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 </body>
 </html>
+{% endblock %}
