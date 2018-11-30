@@ -78,7 +78,7 @@ def show_entries():
     g.db = connect_db()
     cur = g.db.execute('SELECT title, text from entries order by id desc')
     entries = [dict(title = row[0], text=row[1]) for row in cur.fetchall()]
-    return  render_template ( 'show_entries.html', entries=entries)
+    return  render_template ('show_entries.html', entries=entries)
 
 @app.route('/signup')
 def signup():
