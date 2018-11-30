@@ -5,24 +5,10 @@
 	    <p class="lead">It's the homepage yo</p></center>
         </div>
   <center>
-</a>
-<a href="/login">login here</a>
-
-</a>
 <br>
 <a href=”show_entries.html>Create a note</a>
 <figcaption> Fabulous greeks (can you name another culture that could do battle AND theatre?) </figcaption></center>
 <br><br>
-<h3>Posts:</h3>
-{% for post in posts %}
-  <strong>Title:</strong> {{ post.title }} <br>
-  <strong>Post:</strong> {{ post.description }} <br>
-<br>
-{% endfor %}
-{% for message in get_flashed_messages() %}
-        {{ message }}
-      {% endfor %}
-
 			<ul class=entries>
 			{% for entry in entries %}
 				<li><h2>{{entry.title}}</h2>{{entry.text|safe}}
